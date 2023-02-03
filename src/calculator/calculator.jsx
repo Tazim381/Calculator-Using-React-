@@ -29,8 +29,8 @@ function Calculator() {
 
   return <div className="counter-wrap">
     <h1>Calculator  App</h1>
-    <input onChange={value1} type="number" value={count}></input>
-    <input onChange={value2} type="number" value={count1}></input>
+    <input onChange={value1} type="number" value={count} placeholder="Enter 1st number"></input>
+    <input onChange={value2} type="number" value={count1} placeholder="Enter 2nd number"></input>
     <button onClick={add}>Add</button>
     <button onClick={substract}>Substract </button>
     <button onClick={multiply} >Multiply</button>
