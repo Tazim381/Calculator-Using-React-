@@ -1,0 +1,29 @@
+.counter-wrap {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin:auto;
+  border: 2px solid rgb(34, 101, 226);
+  padding: 10px;
+  margin-top: 20px;
+  background-color: bisque;
+  row-gap: 3px;
+}
+
+
+.counter-wrap p{
+  font-size: 22px;
+  font-weight:500;
+  color:rgb(10, 87, 10);
+}
+
+.counter-wrap button{
+ background-color: rgb(130, 178, 232);
+ border-style: none;
+ 
+}
+.counter-wrap button:hover{
+  cursor: pointer;
+  background-color: rgb(31, 113, 143);
+}
