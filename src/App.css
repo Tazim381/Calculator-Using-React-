@@ -1,7 +1,5 @@
 .counter-wrap {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
+  
   width: 30%;
   margin:auto;
   border: 2px solid rgb(34, 101, 226);
@@ -11,6 +9,11 @@
   row-gap: 3px;
 }
 
+.input {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
 
 .counter-wrap p{
   font-size: 22px;
@@ -18,11 +21,7 @@
   color:rgb(10, 87, 10);
 }
 
-.counter-wrap button{
- background-color: rgb(130, 178, 232);
- border-style: none;
- 
-}
+
 .counter-wrap button:hover{
   cursor: pointer;
   background-color: rgb(31, 113, 143);
