@@ -1,50 +1,59 @@
 import { useState } from "react";
 import "../App.css";
 
+//create component
+function Operation({ label,handleOnclik }) {
+  return <button onClick={handleOnclik}>{label}</button>;
+}
+
 function Calculator() {
-  const [count, setValue] = useState();
-  const [count1, setValue1] = useState();
-  const [answer, result] = useState();
-  function value1(event) {
-    setValue(event.target.value);
+  const operations = ["+", "-", "*", "/"];
+  const [numbers,setValue] = useState([0,0]);
+  const [result,setResult] = useState(0);
+  function setNumber(value,index) {
+    const newNumbers =[...numbers];
+    newNumbers[index]= parseInt(value);
+     setValue(newNumbers);
   }
-  function value2(event) {
-    setValue1(event.target.value);
-  }
-  function add() {
-    result(parseInt(count) + parseInt(count1));
-  }
-  function substract() {
-    result(parseInt(count) - parseInt(count1));
-  }
-  function multiply() {
-    result(parseInt(count) * parseInt(count1));
-  }
-  function division() {
-    result(parseInt(count) / parseInt(count1));
-    console.log("clicked");
+
+  function handleOperation(operationType) {
+     switch(operationType){
+      case '+':
+        setResult(numbers[0]+numbers[1]);
+        break;
+      case '-':
+        setResult(numbers[0]-numbers[1]);
+        break;
+      case '*':
+        setResult(numbers[0]*numbers[1]);
+        break;
+      case '/':
+        setResult(numbers[0]/numbers[1]);
+        break;
+      default:
+        break;
+     }
   }
 
   return (
     <div className="counter-wrap">
-      <h1>Calculator App</h1>
-      <input
-        onChange={value1}
-        type="number"
-        value={count}
-        placeholder="Enter 1st number"
-      ></input>
-      <input
-        onChange={value2}
-        type="number"
-        value={count1}
-        placeholder="Enter 2nd number"
-      ></input>
-      <button onClick={add}>Add</button>
-      <button onClick={substract}>Substract </button>
-      <button onClick={multiply}>Multiply</button>
-      <button onClick={division}>Division</button>
-      <p>{`Result  = ${answer}`}</p>
+      <h1>This is happening</h1>
+      <div className="input">
+        {
+          [0,1].map((id) => (
+            <input type="number"  onChange={(e) =>setNumber(e.target.value,id) }></input>
+          ))
+        }
+      </div>
+      <div className="operation">
+        {operations.map((operation, index) => (
+          <Operation key={index} label={operation} handleOnclik={()=>(handleOperation(operation))}/>
+        ))}
+      </div>
+      <div>
+        <h3>Result = {result}</h3>
+      </div>
+
     </div>
   );
 }
